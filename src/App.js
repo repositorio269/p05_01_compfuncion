@@ -13,10 +13,15 @@ function App() {
   const [proveedores, setProveedores] = useState(proveedoresData);
   // const [titulo, setTitulo] = useState('Listado de proveedores');
 
+  const handleDeleteProveedor = (id) => {
+    const proveedoresActualizados = proveedores.filter(proveedor => proveedor.id !== id);
+    setProveedores(proveedoresActualizados);
+  }
 
   return (
     <div className="container">
-      <TablaProveedores proveedores={proveedores} />
+      <TablaProveedores proveedores={proveedores} 
+                        handleDeleteProveedor={handleDeleteProveedor}/>
     </div>
   );
 }
